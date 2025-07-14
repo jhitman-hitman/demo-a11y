@@ -12,7 +12,7 @@ jobs:
       - name: TestParty Reporter
         uses: test-party/reporter@v0.0.1-alpha.5
         with:
-          testparty_token: ${{ secrets.TESTPARTY_TOKEN }}
+          testparty_token: d3093553-0d06-404e-83e3-5e8b8c308ecd
           repository_name: ${{ github.repository }}
           repository_id: ${{ github.repository_id }}
           urls: |
