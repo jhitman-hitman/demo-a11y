@@ -1,0 +1,32 @@
+name: TestParty Reporter
+on:
+  schedule:
+    - cron: '0 10 * * *'
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: TestParty Reporter
+        uses: test-party/reporter@v0.0.1-alpha.5
+        with:
+          testparty_token: ${{ secrets.TESTPARTY_TOKEN }}
+          repository_name: ${{ github.repository }}
+          repository_id: ${{ github.repository_id }}
+          urls: |
+              [
+                {
+                  "url": "https://www.makemytrip.com/flights/sitemap-flights.xml",
+                  "steps": []
+                },
+                {
+                  "url": "https://www.makemytrip.com",
+                  "steps": []
+                }
+              ]
+          setup: |
+            []
+          teardown: |
+            []
